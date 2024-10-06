@@ -38,8 +38,8 @@ public class Character {
     //Defining Setters
     public void setRole(String role){
         this.role = role;
-        this.healthPoints = (role.equalsIgnoreCase("worrior") ? 10:6);
-        this.attack = (role.equalsIgnoreCase("worrior") ? 10:15);
+        this.healthPoints = (role.equalsIgnoreCase("Warrior") ? 10:6);
+        this.attack = (role.equalsIgnoreCase("Warrior") ? 10:15);
     }
 
     public void setName(String name){
@@ -48,12 +48,12 @@ public class Character {
 
     //Method to determine character's role
     public String roleChoice(int choice){
-        return (choice == 1) ? "worrior":"mage";
+        return (choice == 1) ? "Warrior":"mage";
     }
 
         // Method to add a weapon
     public void AddWeapons (OffensiveEquipement weapons){
-        if ((this.role.equalsIgnoreCase("worrior") && weapons.getType().equalsIgnoreCase("Arm")) ||
+        if ((this.role.equalsIgnoreCase("Warrior") && weapons.getType().equalsIgnoreCase("Arm")) ||
         (this.role.equalsIgnoreCase("mage") && weapons.getType().equalsIgnoreCase("spell"))){
             this.weapon = weapons;
             this.attack = this.attack + weapons.getDamage();
@@ -63,7 +63,7 @@ public class Character {
 
     // Method to add an equipement
     public void addEquipement (DeffensiveEquipement equipement){
-        if ( (this.role.equalsIgnoreCase("worrior") && equipement.getName().equalsIgnoreCase("shield") ) ||
+        if ( (this.role.equalsIgnoreCase("Warrior") && equipement.getName().equalsIgnoreCase("shield") ) ||
         (this.role.equalsIgnoreCase("mage") && equipement.getName().equalsIgnoreCase("robe"))){
             this.equipement = equipement;
         }
