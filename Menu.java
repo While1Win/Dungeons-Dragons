@@ -4,6 +4,7 @@ public class Menu {
 
     private Scanner sc;
     private Character character;
+    private Game game;
 
     public Menu() {
         sc = new Scanner(System.in);
@@ -15,23 +16,40 @@ public class Menu {
         do {
             System.out.println("---- Main Menu ----");
             System.out.println("1. Create New Character");
-            System.out.println("2. Quit");
+            System.out.println("2. Start Game");
+            System.out.println("3. Quit");
             System.out.print("Enter your choice: ");
             choice = sc.nextInt();
-            sc.nextLine(); // consume newline
+            sc.nextLine(); 
 
             switch (choice) {
                 case 1:
                     createCharacter();
-                    characterMenu(); // Once character is created, go to character menu
+                    characterMenu(); 
                     break;
                 case 2:
+                    if (character == null) {
+                        System.out.println("Please create a character first!");
+                    } else {
+                        startGame(); 
+                    }
+                    break;
+                case 3:
                     System.out.println("Quitting the game. Goodbye!");
                     break;
                 default:
                     System.out.println("Invalid choice, please choose again.");
             }
         } while (choice != 2);
+    }
+
+    public void startGame(){
+        if (character != null ){
+            game = new Game(character);
+            game.startGame();
+        } else {
+            System.out.println("First create your character!");
+        }
     }
 
     // Method to create a new character
@@ -44,7 +62,7 @@ public class Menu {
         System.out.println("1. Warrior (Guerrier)");
         System.out.println("2. Mage (Magicien)");
         int roleChoice = sc.nextInt();
-        sc.nextLine(); // consume newline
+        sc.nextLine(); 
         String role = (roleChoice == 1) ? "warrior" : "mage";
 
         // Create a new character with the given name and role
@@ -62,7 +80,7 @@ public class Menu {
             System.out.println("3. Back to Main Menu");
             System.out.print("Enter your choice: ");
             choice = sc.nextInt();
-            sc.nextLine(); // consume newline
+            sc.nextLine(); 
 
             switch (choice) {
                 case 1:
@@ -103,7 +121,7 @@ public class Menu {
         System.out.println("2. Modify Role");
         System.out.println("3. Back");
         int choice = sc.nextInt();
-        sc.nextLine(); // consume newline
+        sc.nextLine(); 
 
         switch (choice) {
             case 1:
@@ -132,9 +150,6 @@ public class Menu {
         }
     }
 
-    public static void main(String[] args) {
-        Menu menu = new Menu();
-        menu.run();  // Start the game
-    }
+
 }
 
