@@ -30,6 +30,7 @@ public class Menu {
                 case 2:
                     if (character == null) {
                         System.out.println("Please create a character first!");
+                        createCharacter();
                     } else {
                         startGame(); 
                     }

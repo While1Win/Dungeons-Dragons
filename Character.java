@@ -1,9 +1,9 @@
-public class Character {
+public abstract class Character {
     //Defining class properties
-    private String name;
-    private String role;
-    private int healthPoints;
-    private int attack;
+    protected String name;
+    protected String role;
+    protected int healthPoints;
+    protected int attack;
     private OffensiveEquipement weapon;
     private DeffensiveEquipement equipement;
     

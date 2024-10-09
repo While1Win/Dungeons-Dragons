@@ -1,9 +1,9 @@
 
-public class OffensiveEquipement {
+public abstract class OffensiveEquipement {
     //Defining Class properties
-    private String name;
-    private String type;
-    private int damage;
+    protected String name;
+    protected String type;
+    protected int damage;
 
     //Defining Constructors
     public OffensiveEquipement(String name, String type){
